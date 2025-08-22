@@ -46,7 +46,8 @@ export class EstudiantesService {
 
   update(id: number, updateEstudianteDto: UpdateEstudianteDto): Estudiante {
     const estudiante = this.findOne(id);
-    estudiante.nombre = updateEstudianteDto.nombre;
+    if (updateEstudianteDto.nombre)
+      estudiante.nombre = updateEstudianteDto.nombre;
     estudiante.apellidos = updateEstudianteDto.apellidos;
     estudiante.edad = updateEstudianteDto.edad;
     estudiante.profesion = updateEstudianteDto.profesion;
