@@ -16,6 +16,5 @@ export class CreateEstudianteDto {
   @ApiProperty({ default: 'Ing. Informatico' })
   public profesion: string;
 
-  @ApiProperty({ default: '1990-01-01' })
-  public fechaNacimiento: string;
+  fechaNacimiento: Date;
 }
