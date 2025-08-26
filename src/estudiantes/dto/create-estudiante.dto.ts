@@ -1,10 +1,10 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateEstudianteDto {
-  @ApiProperty({ default: 'Juan Francisco' })
+  @ApiProperty({ default: 'Gabriel' })
   public nombre: string;
 
-  @ApiProperty({ default: 'Maldonado León' })
+  @ApiProperty({ default: 'Jones' })
   public apellidos: string;
 
   @ApiProperty({ default: 36 })
