@@ -11,6 +11,21 @@ import { Estudiante } from './entities/estudiante.entity';
 export class EstudiantesService {
   private estudiantes: Estudiante[] = [];
 
+  constructor() {
+    this.inicializar();
+  }
+
+  inicializar() {
+    const estudiante1 = new Estudiante();
+    estudiante1.id = 1;
+    estudiante1.nombre = 'Juan';
+    estudiante1.apellidos = 'Pérez';
+    estudiante1.edad = 25;
+    estudiante1.profesion = 'Ingeniero';
+    estudiante1.email = 'juan.perez@example.com';
+    this.estudiantes.push(estudiante1);
+  }
+
   create(createEstudianteDto: CreateEstudianteDto): Estudiante {
     const resultado = this.estudiantes.find(
       (estudiante) => estudiante.email === createEstudianteDto.email,

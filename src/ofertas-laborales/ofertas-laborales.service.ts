@@ -10,7 +10,7 @@ export class OfertasLaboralesService {
 
   constructor(private empresasService: EmpresasService) {}
 
-  create(dto: CreateOfertaLaboralDto) {
+  create(dto: CreateOfertaLaboralDto): OfertaLaboral {
     const empresa = this.empresasService.findOne(dto.empresaId);
 
     const oferta = new OfertaLaboral();
@@ -22,25 +22,28 @@ export class OfertasLaboralesService {
     oferta.fechaCreacion = new Date();
     oferta.estado = 'abierta';
     oferta.empresa = empresa;
+    oferta.postulaciones = [];
     this.ofertas.push(oferta);
     return oferta;
   }
 
-  findAll() {
+  findAll(): OfertaLaboral[] {
     return this.ofertas;
   }
 
-  findOne(id: number) {
+  findOne(id: number): OfertaLaboral {
     const oferta = this.ofertas.find((oferta) => oferta.id === id);
     if (!oferta) throw new NotFoundException('No se encontro la oferta');
     return oferta;
   }
 
-  update(id: number, dto: UpdateOfertasLaboraleDto) {
-    return `This action updates a #${id} ofertasLaborale`;
+  update(id: number, dto: UpdateOfertasLaboraleDto): OfertaLaboral {
+    const oferta = this.findOne(id);
+    oferta.estado = dto.estado;
+    return oferta;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} ofertasLaborale`;
+  remove(id: number): void {
+    this.ofertas = this.ofertas.filter((oferta) => oferta.id !== id);
   }
 }

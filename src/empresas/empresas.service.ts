@@ -10,6 +10,19 @@ import { Empresa } from './entities/empresa.entity';
 export class EmpresasService {
   private empresas: Empresa[] = [];
 
+  constructor() {
+    this.inicializar();
+  }
+
+  inicializar() {
+    const empresa1 = new Empresa();
+    empresa1.id = 1;
+    empresa1.nombre = 'Globant';
+    empresa1.sitioWeb = 'https://globant.com';
+    empresa1.tipo = 'Tecnologia';
+    this.empresas.push(empresa1);
+  }
+
   create(createEmpresaDto: CreateEmpresaDto): Empresa {
     const buscarEmpresa = this.findByName(createEmpresaDto.nombre);
     if (buscarEmpresa)

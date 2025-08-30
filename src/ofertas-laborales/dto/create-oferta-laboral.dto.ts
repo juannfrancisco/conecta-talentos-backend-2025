@@ -1,19 +1,19 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateOfertaLaboralDto {
-  @ApiProperty({ default: '' })
+  @ApiProperty({ default: 'Descripción de la oferta laboral' })
   descripcion: string;
 
-  @ApiProperty({ default: '' })
+  @ApiProperty({ default: 'Desarrollador Backend' })
   cargo: string;
 
-  @ApiProperty({ default: '' })
+  @ApiProperty({ default: 'Metropolitana' })
   region: string;
 
-  @ApiProperty({ default: '' })
+  @ApiProperty({ default: 'Remoto' })
   tipo: string;
 
-  @ApiProperty({ default: '' })
+  @ApiProperty({ default: 1 })
   empresaId: number;
 
 }
